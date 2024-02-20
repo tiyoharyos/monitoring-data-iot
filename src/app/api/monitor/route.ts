@@ -13,11 +13,8 @@ mongodb.then(() => {
 const MQTT_BROKER = "io.adafruit.com";
 const MQTT_PORT = 1883;
 const USERNAME = "haryo";
-// const USERNAME = "SakuraDen";
 const MONITORING = `${USERNAME}/feeds/monitoring_cabai`;
-// const MONITORING = `${USERNAME}/feeds/geming`;
 const ACTIVE_KEY = "aio_bqIW38bzM9bjlZvmVaM9zZv2IzwP";
-// const ACTIVE_KEY = "fe3ea505f1774b309079a26ab6c109bb";
 const mqttClient = mqtt.connect(`mqtt://${MQTT_BROKER}:${MQTT_PORT}`, {
   username: USERNAME,
   password: ACTIVE_KEY,

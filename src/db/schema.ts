@@ -29,6 +29,6 @@ const DelayDataModel =
     })
   );
 
-const mongodb = mongoose.connect("mongodb://localhost:27017/Testing");
+const mongodb = mongoose.connect("mongodb+srv://haryos:AkuNyolo288790@datacabai.dxdvdpw.mongodb.net/?retryWrites=true&w=majority%22");
 
 export { mongodb };

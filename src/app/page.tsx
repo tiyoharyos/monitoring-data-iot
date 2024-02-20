@@ -13,6 +13,12 @@ interface MqttDataModel {
   firebase_duration: number;
 }
 
+declare global {
+  interface Window {
+    myChart: Chart;
+  }
+}
+
 export default function Home() {
   const [mqttDataModel, setMqttDataModel] = useState<MqttDataModel>({
     humidity: 0,
@@ -174,3 +180,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -49,12 +49,10 @@ export default function Home() {
     return () => {
       event.close();
     };
-  }, []);
-
-  useEffect(() => {
-    // Update the chart whenever mqttDataModel changes
     updateChart(mqttDataModel.firebase_duration, mqttDataModel.mqtt_duration);
   }, [mqttDataModel]);
+
+    
 
   const updateChart = (firebaseDuration: number, mqttDuration: number) => {
     if (!window.myChart) {

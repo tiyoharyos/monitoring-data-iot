@@ -14,7 +14,7 @@ const MQTT_BROKER = "io.adafruit.com";
 const MQTT_PORT = 1883;
 const USERNAME = "haryo";
 const MONITORING = `${USERNAME}/feeds/monitoring_cabai`;
-const ACTIVE_KEY = "aio_bqIW38bzM9bjlZvmVaM9zZv2IzwP";
+const ACTIVE_KEY = "aio_IzdH60pL3au3xPKAtHzTOxJnWUCX";
 const mqttClient = mqtt.connect(`mqtt://${MQTT_BROKER}:${MQTT_PORT}`, {
   username: USERNAME,
   password: ACTIVE_KEY,

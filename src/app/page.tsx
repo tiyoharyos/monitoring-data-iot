@@ -3,8 +3,18 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Chart from "chart.js/auto";
 
+interface MqttDataModel {
+  humidity: number;
+  temperature: number;
+  soil_moisture: number;
+  soil_moisture_status: string;
+  water_pump_status: string;
+  mqtt_duration: number;
+  firebase_duration: number;
+}
+
 export default function Home() {
-  const [mqttDataModel, setMqttDataModel] = useState({
+  const [mqttDataModel, setMqttDataModel] = useState<MqttDataModel>({
     humidity: 0,
     temperature: 0,
     soil_moisture: 0,
@@ -40,7 +50,7 @@ export default function Home() {
     updateChart(mqttDataModel.firebase_duration, mqttDataModel.mqtt_duration);
   }, [mqttDataModel]);
 
-  const updateChart = (firebaseDuration, mqttDuration) => {
+  const updateChart = (firebaseDuration: number, mqttDuration: number) => {
     if (!window.myChart) {
       const ctx = document.getElementById('durationChart').getContext('2d');
       window.myChart = new Chart(ctx, {
@@ -76,10 +86,10 @@ export default function Home() {
     const time = new Date().toLocaleTimeString();
 
     // Add new data to the datasets if the values are valid
-    if (typeof firebaseDuration === 'number' && !isNaN(firebaseDuration)) {
+    if (!isNaN(firebaseDuration)) {
       chart.data.datasets[0].data.push(firebaseDuration);
     }
-    if (typeof mqttDuration === 'number' && !isNaN(mqttDuration)) {
+    if (!isNaN(mqttDuration)) {
       chart.data.datasets[1].data.push(mqttDuration);
     }
 
@@ -127,7 +137,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data HTTP</h5>
@@ -135,7 +145,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data MQTT</h5>

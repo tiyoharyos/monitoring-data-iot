@@ -58,7 +58,7 @@ export default function Home() {
 
   const updateChart = (firebaseDuration: number, mqttDuration: number) => {
     if (!window.myChart) {
-      const canvas = document.getElementById('durationChart');
+      const canvas = document.getElementById('durationChart') as HTMLCanvasElement;
       if (!canvas) return; // Pastikan elemen ditemukan
       const ctx = canvas.getContext('2d');
       if (!ctx) return; // Pastikan konteks ditemukan
@@ -183,4 +183,3 @@ export default function Home() {
     </div>
   );
 }
-

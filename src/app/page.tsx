@@ -150,7 +150,7 @@ export default function Home() {
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data HTTP</h5>
-              <p className="card-text">{mqttDataModel.firebase_duration}</p>
+              <p className="card-text">{mqttDataModel.firebase_duration}ms</p>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function Home() {
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data MQTT</h5>
-              <p className="card-text">{mqttDataModel.mqtt_duration}</p>
+              <p className="card-text">{mqttDataModel.mqtt_duration}ms</p>
             </div>
           </div>
         </div>

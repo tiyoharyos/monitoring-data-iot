@@ -109,7 +109,7 @@ export default function Home() {
     const maxDataPoints = 10;
     if (chart.data.labels.length > maxDataPoints) {
       chart.data.labels.shift();
-      chart.data.datasets.forEach(dataset => {
+      chart.data.datasets.forEach((dataset: Chart.ChartDataSets) => {
         dataset.data.shift();
       });
     }
@@ -146,7 +146,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-4">
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data HTTP</h5>
@@ -154,7 +154,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-4">
           <div className="card bg-secondary text-white mb-3">
             <div className="card-body">
               <h5 className="card-title">Durasi Transfer Data MQTT</h5>

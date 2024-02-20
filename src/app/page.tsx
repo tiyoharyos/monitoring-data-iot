@@ -15,7 +15,7 @@ interface MqttDataModel {
 
 declare global {
   interface Window {
-    myChart: Chart;
+    myChart: Chart | null; // Mengizinkan nilai null
   }
 }
 
@@ -58,7 +58,10 @@ export default function Home() {
 
   const updateChart = (firebaseDuration: number, mqttDuration: number) => {
     if (!window.myChart) {
-      const ctx = document.getElementById('durationChart').getContext('2d');
+      const canvas = document.getElementById('durationChart');
+      if (!canvas) return; // Pastikan elemen ditemukan
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return; // Pastikan konteks ditemukan
       window.myChart = new Chart(ctx, {
         type: 'line',
         data: {
